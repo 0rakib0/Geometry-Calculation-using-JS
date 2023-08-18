@@ -28,6 +28,7 @@ function calculateTrialngeArea(){
     }
     const area = 0.5 * base * height
     setResultValue('tarea', area)
+    addToCulEntry('Trialnge', area)
 }
 
 function rectangleAreaCal(){
@@ -39,6 +40,7 @@ function rectangleAreaCal(){
     }
     const area = width * length
     setResultValue('rarea', area)
+    addToCulEntry('Rectangle', area)
 }
 
 function parallelogram(){
@@ -50,6 +52,7 @@ function parallelogram(){
     }
     const area = base * height
     setResultValue('parea', area)
+    addToCulEntry('parallelogram', area)
 }
 
 function rhomboseAreaCal(){
@@ -61,6 +64,7 @@ function rhomboseAreaCal(){
     }
     const area = 0.5 * d1 * d2
     setResultValue('harea', area)
+    addToCulEntry('Rhombose', area)
 }
 function pentagonAreaCal(){
     const p = getInputFieldValue('p')
@@ -71,6 +75,7 @@ function pentagonAreaCal(){
     }
     const area = 0.5 * p * b
     setResultValue('parea2', area)
+    addToCulEntry('Pentagon', area)
 }
 
 function ellipseAreCal(){
@@ -82,4 +87,15 @@ function ellipseAreCal(){
     }
     const area = 3.1416 * a * b
     setResultValue('earea', area)
+    addToCulEntry('Ellipse', area)
+}
+
+function addToCulEntry(areaType, area){
+    const calEntry = document.getElementById('calculate-Entry');
+    const count = document.childElementCount;
+    console.log(count)
+    const p = document.createElement('p');
+    p.classList.add('my-4');
+    p.innerHTML = `${count}. ${areaType} ${area} cm<sup>2</sup> <button class="btn btn-primary btn-sm">Condert</button>`;
+    calEntry.appendChild(p);
 }
